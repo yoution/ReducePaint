@@ -18,7 +18,7 @@
 2. 绿色方块
 ![demo2_2](./images/demo2_2.png)
 可以看到两个方块都触发了paint，对比demo1，蓝色方块由于是单独的graphicsLayer，应该不触发paint的，但是实际却触发了paint，绿色方块由于没有`will-change`，所以触发了paint。   
-但是从图上可以看到，这两个paint过程又是不一样的，蓝色方块没有像绿色方块一样进行实际的paint过程，对于绿色方块则进行了paint操作，原因是绿色方块没有`will-change`，所以触发paint，但是由于绿色方块是蓝色方块的squashLayer，squashLayer发生变化，会导致蓝色方块发生paint，由于有缓存，蓝色方块对应的paintLayer由于没有发生变化，直接取了缓存，所以只是进行的paint函数，没有进行paint操作
+但是从图上可以看到，这两个paint过程又是不一样的，蓝色方块没有像绿色方块一样进行实际的paint过程，而绿色方块则进行了paint操作，原因是绿色方块没有`will-change`，所以触发paint，但是由于绿色方块是蓝色方块的squashLayer，squashLayer发生变化，会导致蓝色方块发生paint，由于有缓存，蓝色方块对应的paintLayer由于没有发生变化，直接取了缓存，所以只是进行的paint函数，没有进行paint操作
 
 ## 减少paint
 这篇[`文章`](https://developers.google.com/web/fundamentals/performance/rendering/simplify-paint-complexity-and-reduce-paint-areas)有介绍减少paint，讲到了`will-change`，发现还有其他参数可以代替`will-change`，实现相同的效果
