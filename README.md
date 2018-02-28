@@ -23,10 +23,10 @@
 ## 减少paint
 这篇[`文章`](https://developers.google.com/web/fundamentals/performance/rendering/simplify-paint-complexity-and-reduce-paint-areas)有介绍减少paint，讲到了`will-change`，发现还有其他参数可以代替`will-change`，实现相同的效果
 
-### 可减少paint的样式
+### 触发参数
 * kCompositingReason3DTransform，如transform:perspective(400px),transform: translateZ(10)，transform:scaleZ(0.5)等 [`demo`](https://codepen.io/yoution/pen/GQPQex)
 * kCompositingReasonActiveAnimation, 包括opacityAnimation, transformAnimation，filterAnimation，backDropFilterAnimation [`demo`](https://codepen.io/yoution/pen/ZrVoLv)
-* kCompositingReasonWillChangeCompositingHint,包括opacity, top, left, bottom, right，transform
+* kCompositingReasonWillChangeCompositingHint,包括opacity, top, left, bottom, right，transform [`demo`](https://codepen.io/yoution/pen/MQZGZB)
 * kCompositingReasonBackfaceVisibilityHidden [`demo`](https://codepen.io/yoution/pen/paqamM)
 
 
